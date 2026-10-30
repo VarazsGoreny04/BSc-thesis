@@ -80,14 +80,14 @@ where T :
 		for (int i = polynomial.Length - 1; i > 1; --i)
 		{
 			if (polynomial[i] != T.AdditiveIdentity)
-				parts.Add($"{(polynomial[i] != T.MultiplicativeIdentity ? $"({polynomial[i]})" : "")}x^{i}");
+				parts.Add($"{(polynomial[i] != T.MultiplicativeIdentity ? $"{new Number<T>(polynomial[i])}" : "")}x^{i}");
 		}
 
 		if (polynomial.Length >= 2 && polynomial[1] != T.AdditiveIdentity)
-			parts.Add($"{(polynomial[1] != T.MultiplicativeIdentity ? $"({polynomial[1]})" : "")}x");
+			parts.Add($"{(polynomial[1] != T.MultiplicativeIdentity ? $"{new Number<T>(polynomial[1])}" : "")}x");
 
 		if (polynomial[0] != T.AdditiveIdentity)
-			parts.Add($"({polynomial[0]})");
+			parts.Add($"{new Number<T>(polynomial[0])}");
 
 		return string.Join('+', parts);
 	}

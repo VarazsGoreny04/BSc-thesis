@@ -304,7 +304,7 @@ public class Rational :
 	/// <returns>An <see cref="Rational"/> number as a <see langword="string"/>.</returns>
 	public static string ToFractionString(Rational value)
 	{
-		return value.denominator is Positive denominator ? $"{value.numerator}/{denominator}" : value.numerator.ToString();
+		return value.denominator is Positive denominator ? $"({value.numerator}/{denominator})" : value.numerator.ToString();
 	}
 
 	/// <summary>
