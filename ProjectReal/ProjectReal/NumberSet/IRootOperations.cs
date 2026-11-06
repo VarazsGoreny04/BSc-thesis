@@ -16,6 +16,6 @@ public interface IRootOperations<TSelf, TOther, TResult> where TSelf : IRootOper
 	/// <summary>Computes the root of the two values. The operator is left associative.</summary>
 	/// <param name="left">The radicand value.</param>
 	/// <param name="right">The degree value.</param>
-	/// <returns>The <paramref name="right"/>-th root of the <paramref name="left"/> value.</returns>
+	/// <returns>The <paramref name="left"/>-th root of the <paramref name="right"/> value.</returns>
 	static abstract TResult operator |(TSelf left, TOther right);
 }

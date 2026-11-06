@@ -1,4 +1,5 @@
 ﻿using Calculators;
+using Calculators.Derivative;
 using Calculators.EuclideanSpace;
 using Calculators.Interpolation;
 using Calculators.Standard;
@@ -74,6 +75,10 @@ internal class Program
 			new("inv", () => new Inverse<Rational>())
 		];
 
+		Calculator.FunctionToken<Rational>[] derivativeFunctionTokens = [
+			new("x", () => new X<Rational>(new Number<Rational>("1"), new Number<Rational>("1")))
+		];
+
 		StandardCalculator<Rational> standardCalculator = new(standardFunctionTokens);
 
 		return calculatorType switch
@@ -81,6 +86,7 @@ internal class Program
 			'S' => standardCalculator,
 			'M' => new EuclideanSpaceCalculator<Rational>(euclideanSpaceFunctionTokens, standardCalculator),
 			'I' => new InterpolationCalculator<Rational>(standardCalculator),
+			'D' => new DerivativeCalculator<Rational>(derivativeFunctionTokens),
 			_ => throw new ArgumentException($"Unknown calculator type \"{calculatorType}\"!")
 		};
 	}
