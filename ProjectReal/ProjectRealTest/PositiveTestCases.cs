@@ -26,7 +26,6 @@ public static class PositiveTestCases
 {
 	public static readonly ImmutableArray<PositiveTestCase> List =
 	[
-		/*Zero*/
 		new(
 			number1: "0",
 			number2: "0",
@@ -79,8 +78,6 @@ public static class PositiveTestCases
 			pow: "1",
 			root: "ERROR"
 		),
-
-		/*Whole or not*/
 		new(
 			number1: "1.0",
 			number2: "0.1",
@@ -133,8 +130,6 @@ public static class PositiveTestCases
 			pow: "ERROR",
 			root: "ERROR"
 		),
-
-		/*Small numbers*/
 		new(
 			number1: "0.8",
 			number2: "0.07",
@@ -239,8 +234,6 @@ public static class PositiveTestCases
 			pow: "ERROR",
 			root: "ERROR"
 		),
-
-		/*Big numbers*/
 		new(
 			number1: "654.321",
 			number2: "123.456",

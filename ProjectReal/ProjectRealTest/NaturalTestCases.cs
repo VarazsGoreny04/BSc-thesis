@@ -26,7 +26,6 @@ public static class NaturalTestCases
 {
 	public static readonly ImmutableArray<NaturalTestCase> List =
 	[
-		/*Zero*/
 		new(
 			number1: "0",
 			number2: "0",
@@ -170,8 +169,6 @@ public static class NaturalTestCases
 			pow: "1",
 			root: "ERROR"
 		),
-
-		/*Big and small*/
 		new(
 			number1: "123456789",
 			number2: "987654321987654321987654321",
@@ -341,8 +338,6 @@ public static class NaturalTestCases
 			pow: "1000000000000000000000000000000000000000000",
 			root: "31622776601"
 		),
-
-		/*On the edge*/
 		new(
 			number1: "9999",
 			number2: "1",
@@ -538,8 +533,6 @@ public static class NaturalTestCases
 			pow: "BIG",
 			root: "BIG"
 		),
-
-		/*Prime numbers*/
 		new(
 			number1: "10",
 			number2: "3",

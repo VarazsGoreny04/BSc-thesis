@@ -1,5 +1,6 @@
 ﻿using Calculators;
 using ProjectReal.Number;
+using ProjectRealTest;
 using System;
 
 namespace CalculatorsTest;
@@ -55,15 +56,15 @@ public class MultiplyTest
 		Number<Rational> number1, number2;
 		Multiply<Rational> mul;
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			mul = new(number1, number2);
+			mul = new Multiply<Rational>(number1, number2);
 
 			Assert.AreEqual(rational1, mul.Left.GetValue());
 			Assert.AreEqual(rational2, mul.Right.GetValue());
@@ -77,16 +78,16 @@ public class MultiplyTest
 		Number<Rational> number1, number2;
 		Multiply<Rational> mul1, mul2;
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			mul1 = new(number1, number2);
-			mul2 = new(number2, number1);
+			mul1 = new Multiply<Rational>(number1, number2);
+			mul2 = new Multiply<Rational>(number2, number1);
 
 			expected = item.Mul;
 

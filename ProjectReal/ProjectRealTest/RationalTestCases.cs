@@ -25,7 +25,6 @@ public static class RationalTestCases
 {
 	public static readonly ImmutableArray<RationalTestCase> List =
 	[
-		/*Zero*/
 		new(
 			number1: "+0",
 			number2: "+0",
@@ -1378,7 +1377,7 @@ public static class RationalTestCases
 			add: "+19/20",
 			sub: "-7/20",
 			mul: "+39/200",
-			div: "+6/15",
+			div: "+6/13",
 			pow: "+0.45722378610564944999545441564517308412748353575348541799668797685114138646",
 			root: "+0.1568812933687487382023057850373289565201331269546850803445303128392542568"
 		),
@@ -1558,7 +1557,7 @@ public static class RationalTestCases
 			add: "-9999999999999998.9999999999999999",
 			sub: "+9999999999999999.0000000000000001",
 			mul: "-0.9999999999999999",
-			div: "+0",
+			div: "-0.0000000000000001/9999999999999999",
 			pow: "BIG",
 			root: "BIG"
 		),
@@ -1570,7 +1569,7 @@ public static class RationalTestCases
 			add: "+9999999999999998.9999999999999999",
 			sub: "-9999999999999999.0000000000000001",
 			mul: "-0.9999999999999999",
-			div: "-0",
+			div: "-0.0000000000000001/9999999999999999",
 			pow: "BIG",
 			root: "BIG"
 		),

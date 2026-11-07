@@ -30,11 +30,11 @@ public class AddTest
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			add1 = new(number1);
-			add2 = new(number2);
+			add1 = new Add<Rational>(number1);
+			add2 = new Add<Rational>(number2);
 
 			Assert.AreEqual(Rational.AdditiveIdentity, add1.Left.GetValue());
 			Assert.AreEqual(rational1, add1.Right.GetValue());
@@ -56,10 +56,10 @@ public class AddTest
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			add = new(number1, number2);
+			add = new Add<Rational>(number1, number2);
 
 			Assert.AreEqual(rational1, add.Left.GetValue());
 			Assert.AreEqual(rational2, add.Right.GetValue());
@@ -81,11 +81,11 @@ public class AddTest
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			add1 = new(number1, number2);
-			add2 = new(number2, number1);
+			add1 = new Add<Rational>(number1, number2);
+			add2 = new Add<Rational>(number2, number1);
 
 			expected = item.Add;
 
@@ -98,11 +98,11 @@ public class AddTest
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			add1 = new(number1);
-			add2 = new(number2);
+			add1 = new Add<Rational>(number1);
+			add2 = new Add<Rational>(number2);
 
 			Assert.AreEqual(rational1, add1.GetValue());
 			Assert.AreEqual(rational2, add2.GetValue());

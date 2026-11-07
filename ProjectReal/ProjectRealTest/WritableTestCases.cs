@@ -24,7 +24,6 @@ public static class WritableTestCases
 {
 	public static readonly ImmutableArray<WritableTestCase> List =
 	[
-		/*Zero*/
 		new(
 			number1: "+0",
 			number2: "+0",

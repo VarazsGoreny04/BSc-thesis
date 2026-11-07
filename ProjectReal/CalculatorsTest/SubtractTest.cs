@@ -1,5 +1,6 @@
 ﻿using Calculators;
 using ProjectReal.Number;
+using ProjectRealTest;
 using System;
 
 namespace CalculatorsTest;
@@ -25,16 +26,16 @@ public class SubtractTest
 		Number<Rational> number1, number2;
 		Subtract<Rational> sub1, sub2;
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			sub1 = new(number1);
-			sub2 = new(number2);
+			sub1 = new Subtract<Rational>(number1);
+			sub2 = new Subtract<Rational>(number2);
 
 			Assert.AreEqual(Rational.AdditiveIdentity, sub1.Left.GetValue());
 			Assert.AreEqual(rational1, sub1.Right.GetValue());
@@ -51,15 +52,15 @@ public class SubtractTest
 		Number<Rational> number1, number2;
 		Subtract<Rational> sub;
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			sub = new(number1, number2);
+			sub = new Subtract<Rational>(number1, number2);
 
 			Assert.AreEqual(rational1, sub.Left.GetValue());
 			Assert.AreEqual(rational2, sub.Right.GetValue());
@@ -76,31 +77,31 @@ public class SubtractTest
 		Number<Rational> number1, number2;
 		Subtract<Rational> sub, sub1, sub2;
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			sub = new(number1, number2);
+			sub = new Subtract<Rational>(number1, number2);
 
 			expected = item.Sub;
 
 			Assert.AreEqual(expected, sub.GetValue());
 		}
 
-		foreach (NumberTestCase item in NumberTestCases.List)
+		foreach (RationalTestCase item in RationalTestCases.List)
 		{
 			rational1 = item.Number1;
 			rational2 = item.Number2;
 
-			number1 = new(rational1);
-			number2 = new(rational2);
+			number1 = new Number<Rational>(rational1);
+			number2 = new Number<Rational>(rational2);
 
-			sub1 = new(number1);
-			sub2 = new(number2);
+			sub1 = new Subtract<Rational>(number1);
+			sub2 = new Subtract<Rational>(number2);
 
 			Assert.AreEqual(-rational1, sub1.GetValue());
 			Assert.AreEqual(-rational2, sub2.GetValue());

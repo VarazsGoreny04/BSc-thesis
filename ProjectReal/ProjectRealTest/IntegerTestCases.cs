@@ -25,7 +25,6 @@ public static class IntegerTestCases
 {
 	public static readonly ImmutableArray<IntegerTestCase> List =
 	[
-		/*Zero*/
 		new(
 			number1: "+0",
 			number2: "+0",
