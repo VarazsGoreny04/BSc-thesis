@@ -39,7 +39,7 @@ where T :
 			// Number
 			new(NumberRegex(), value => new Number<T>(T.Parse(value, null))),
 			// Function name
-			new(FunctionNameRegex(), name => GetFunctionByName(functionTokens ?? [], name)),
+			new(FunctionNameRegex(), name => GetFunctionByName(functionTokens, name)),
 			// Operators
 			new(AddRegex(), _ => new Add<T>()),
 			new(SubtractRegex(), _ => new Subtract<T>()),
