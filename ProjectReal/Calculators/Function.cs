@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Calculators;
 
@@ -45,6 +46,9 @@ public abstract partial class Function<T> : FunctionBase<T>
 	#endregion
 
 	#region Public methods
+
+	[GeneratedRegex(@"^\w+$")]
+	public static partial Regex Regex();
 
 	public override void FullEvaluation(ref List<(string, string)> partialValues, ValueHolder<T> root, ref int step)
 	{

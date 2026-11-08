@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Calculators;
 
@@ -7,7 +8,7 @@ namespace Calculators;
 /// Represents a separator character in a function call.
 /// </summary>
 /// <typeparam name="T">The type to separate.</typeparam>
-public sealed class Coma<T> : Expression
+public sealed partial class Coma<T> : Expression
 {
 	#region Constructors
 
@@ -37,6 +38,9 @@ public sealed class Coma<T> : Expression
 	#endregion
 
 	#region Public methods
+
+	[GeneratedRegex(@"^,$")]
+	public static partial Regex Regex();
 
 	public override string ToStringByStep(ref int _) => ",";
 

@@ -8,7 +8,7 @@ namespace Calculators.EuclideanSpace;
 /// Represents a diagonalization function.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the matrix.</typeparam>
-public class Diagonalize<T> : Function<Matrix<T>>
+public sealed class Diagonalize<T> : Function<Matrix<T>>
 where T :
 	IComparisonOperators<T, T, bool>,
 	IEqualityOperators<T, T, bool>,
@@ -76,7 +76,7 @@ where T :
 /// Represents a inverse function.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the matrix.</typeparam>
-public class Inverse<T> : Function<Matrix<T>>
+public sealed class Inverse<T> : Function<Matrix<T>>
 where T :
 	IComparisonOperators<T, T, bool>,
 	IEqualityOperators<T, T, bool>,

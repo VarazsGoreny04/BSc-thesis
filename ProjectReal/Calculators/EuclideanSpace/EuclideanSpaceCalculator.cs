@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text.RegularExpressions;
 
 namespace Calculators.EuclideanSpace;
 
@@ -12,7 +11,7 @@ namespace Calculators.EuclideanSpace;
 /// A calculator that understands matrices and can perform operations with them.
 /// </summary>
 /// <typeparam name="T">The type to calculate with.</typeparam>
-public partial class EuclideanSpaceCalculator<T> : Calculator
+public sealed partial class EuclideanSpaceCalculator<T> : Calculator
 where T :
 	IComparisonOperators<T, T, bool>,
 	IEqualityOperators<T, T, bool>,
@@ -28,13 +27,6 @@ where T :
 	IMultiplicativeIdentity<T, T>,
 	IParsable<T>
 {
-	#region GeneratedRegex
-
-	[GeneratedRegex(@"^\[.*\]$")]
-	protected static partial Regex BracketedRegex();
-
-	#endregion
-
 	#region Fields
 
 	protected readonly FunctionToken<Matrix<T>>[] functionTokens = [];
@@ -49,19 +41,19 @@ where T :
 	public EuclideanSpaceCalculator(FunctionToken<Matrix<T>>[] functionTokens, StandardCalculator<T> standardCalculator) : base(
 		[
 			// Matrix
-			new(BracketedRegex(), value => new MatrixHolder<T>(new Matrix<T>(value[1..^1], standardCalculator))),
+			new(MatrixHolder<T>.Regex(), value => new MatrixHolder<T>(new Matrix<T>(value[1..^1], standardCalculator))),
 			// Function name
-			new(FunctionNameRegex(), name => GetFunctionByName(functionTokens, name)),
+			new(Function<T>.Regex(), name => GetFunctionByName(functionTokens, name)),
 			// Operators
-			new(AddRegex(), _ => new Add<Matrix<T>>()),
-			new(SubtractRegex(), _ => new Subtract<Matrix<T>>()),
-			new(MultiplyRegex(), _ => new Multiply<Matrix<T>>()),
-			new(DivideRegex(), _ => new Divide<Matrix<T>>()),
-			new(ModuloRegex(), _ => new Modulo<Matrix<T>>()),
+			new(Add<T>.Regex(), _ => new Add<Matrix<T>>()),
+			new(Subtract<T>.Regex(), _ => new Subtract<Matrix<T>>()),
+			new(Multiply<T>.Regex(), _ => new Multiply<Matrix<T>>()),
+			new(Divide<T>.Regex(), _ => new Divide<Matrix<T>>()),
+			new(Modulo<T>.Regex(), _ => new Modulo<Matrix<T>>()),
 			// Separators
-			new(OpeningParenthesisRegex(), _ => new OpeningParenthesis()),
-			new(ClosingParenthesisRegex(), _ => new ClosingParenthesis<Matrix<T>>()),
-			new(ComaRegex(), _ => new Coma<Matrix<T>>())
+			new(OpeningParenthesis.Regex(), _ => new OpeningParenthesis()),
+			new(ClosingParenthesis<T>.Regex(), _ => new ClosingParenthesis<Matrix<T>>()),
+			new(Coma<T>.Regex(), _ => new Coma<Matrix<T>>())
 		]
 	) => this.functionTokens = functionTokens;
 

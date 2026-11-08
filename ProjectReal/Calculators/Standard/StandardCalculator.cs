@@ -10,7 +10,7 @@ namespace Calculators.Standard;
 /// A calculator that understands the basic numbers, operations and trigonometric functions.
 /// </summary>
 /// <typeparam name="T">The type to calculate with.</typeparam>
-public class StandardCalculator<T> : Calculator
+public sealed class StandardCalculator<T> : Calculator
 where T :
 	IAdditiveIdentity<T, T>,
 	IAdditionOperators<T, T, T>,
@@ -25,7 +25,7 @@ where T :
 {
 	#region Fields
 
-	protected readonly FunctionToken<T>[] functionTokens = [];
+	private readonly FunctionToken<T>[] functionTokens = [];
 
 	#endregion
 
@@ -37,21 +37,21 @@ where T :
 	public StandardCalculator(FunctionToken<T>[] functionTokens) : base(
 		[
 			// Number
-			new(NumberRegex(), value => new Number<T>(T.Parse(value, null))),
+			new(Number<T>.Regex(), value => new Number<T>(T.Parse(value, null))),
 			// Function name
-			new(FunctionNameRegex(), name => GetFunctionByName(functionTokens, name)),
+			new(Function<T>.Regex(), name => GetFunctionByName(functionTokens, name)),
 			// Operators
-			new(AddRegex(), _ => new Add<T>()),
-			new(SubtractRegex(), _ => new Subtract<T>()),
-			new(MultiplyRegex(), _ => new Multiply<T>()),
-			new(DivideRegex(), _ => new Divide<T>()),
-			new(ModuloRegex(), _ => new Modulo<T>()),
-			new(PowerRegex(), _ => new Power<T>()),
-			new(RootRegex(), _ => new Root<T>()),
+			new(Add<T>.Regex(), _ => new Add<T>()),
+			new(Subtract<T>.Regex(), _ => new Subtract<T>()),
+			new(Multiply<T>.Regex(), _ => new Multiply<T>()),
+			new(Divide<T>.Regex(), _ => new Divide<T>()),
+			new(Modulo<T>.Regex(), _ => new Modulo<T>()),
+			new(Power<T>.Regex(), _ => new Power<T>()),
+			new(Root<T>.Regex(), _ => new Root<T>()),
 			// Separators
-			new(OpeningParenthesisRegex(), _ => new OpeningParenthesis()),
-			new(ClosingParenthesisRegex(), _ => new ClosingParenthesis<T>()),
-			new(ComaRegex(), _ => new Coma<T>())
+			new(OpeningParenthesis.Regex(), _ => new OpeningParenthesis()),
+			new(ClosingParenthesis<T>.Regex(), _ => new ClosingParenthesis<T>()),
+			new(Coma<T>.Regex(), _ => new Coma<T>())
 		]
 	) => this.functionTokens = functionTokens;
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace Calculators;
 
@@ -10,7 +11,7 @@ namespace Calculators;
 /// Represents the add operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Add<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T>, IAdditionOperators<T, T, T>
+public sealed partial class Add<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T>, IAdditionOperators<T, T, T>
 {
 	#region Fields
 
@@ -79,6 +80,9 @@ public partial class Add<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T
 
 	#region Public methods
 
+	[GeneratedRegex(@"^\+$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "+";
 
 	public override void FullEvaluation(ref List<(string, string)> partialValues, ValueHolder<T> root, ref int step)
@@ -110,7 +114,7 @@ public partial class Add<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T
 /// Represents the subtract operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Subtract<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T>, ISubtractionOperators<T, T, T>
+public sealed partial class Subtract<T> : BinaryOperator<T> where T : IAdditiveIdentity<T, T>, ISubtractionOperators<T, T, T>
 {
 	#region Fields
 
@@ -179,6 +183,9 @@ public partial class Subtract<T> : BinaryOperator<T> where T : IAdditiveIdentity
 
 	#region Public methods
 
+	[GeneratedRegex(@"^\-$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "-";
 
 	public override void FullEvaluation(ref List<(string, string)> partialValues, ValueHolder<T> root, ref int step)
@@ -210,7 +217,7 @@ public partial class Subtract<T> : BinaryOperator<T> where T : IAdditiveIdentity
 /// Represents the multiply operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Multiply<T> : BinaryOperator<T> where T : IMultiplyOperators<T, T, T>
+public sealed partial class Multiply<T> : BinaryOperator<T> where T : IMultiplyOperators<T, T, T>
 {
 	#region Constructors
 
@@ -242,6 +249,9 @@ public partial class Multiply<T> : BinaryOperator<T> where T : IMultiplyOperator
 
 	#region Public methods
 
+	[GeneratedRegex(@"^\*$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "*";
 
 	#endregion
@@ -251,7 +261,7 @@ public partial class Multiply<T> : BinaryOperator<T> where T : IMultiplyOperator
 /// Represents the divide operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Divide<T> : BinaryOperator<T> where T : IDivisionOperators<T, T, T>
+public sealed partial class Divide<T> : BinaryOperator<T> where T : IDivisionOperators<T, T, T>
 {
 	#region Constructors
 
@@ -283,6 +293,9 @@ public partial class Divide<T> : BinaryOperator<T> where T : IDivisionOperators<
 
 	#region Public methods
 
+	[GeneratedRegex(@"^/$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "/";
 
 	#endregion
@@ -292,7 +305,7 @@ public partial class Divide<T> : BinaryOperator<T> where T : IDivisionOperators<
 /// Represents the modulo operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Modulo<T> : BinaryOperator<T> where T : IModulusOperators<T, T, T>
+public sealed partial class Modulo<T> : BinaryOperator<T> where T : IModulusOperators<T, T, T>
 {
 	#region Constructors
 
@@ -324,6 +337,9 @@ public partial class Modulo<T> : BinaryOperator<T> where T : IModulusOperators<T
 
 	#region Public methods
 
+	[GeneratedRegex(@"^%$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "%";
 
 	#endregion
@@ -333,7 +349,7 @@ public partial class Modulo<T> : BinaryOperator<T> where T : IModulusOperators<T
 /// Represents the power operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Power<T> : BinaryOperator<T> where T : IPowerOperations<T, T, T>
+public sealed partial class Power<T> : BinaryOperator<T> where T : IPowerOperations<T, T, T>
 {
 	#region Constructors
 
@@ -377,6 +393,9 @@ public partial class Power<T> : BinaryOperator<T> where T : IPowerOperations<T, 
 
 	#region Public methods
 
+	[GeneratedRegex(@"^\^$")]
+	public static partial Regex Regex();
+
 	public override string Sign() => "^";
 
 	#endregion
@@ -386,7 +405,7 @@ public partial class Power<T> : BinaryOperator<T> where T : IPowerOperations<T, 
 /// Represents the root operator.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
-public partial class Root<T> : BinaryOperator<T> where T : IRootOperations<T, T, T>
+public sealed partial class Root<T> : BinaryOperator<T> where T : IRootOperations<T, T, T>
 {
 	#region Constructors
 
@@ -417,6 +436,9 @@ public partial class Root<T> : BinaryOperator<T> where T : IRootOperations<T, T,
 	#endregion
 
 	#region Public methods
+
+	[GeneratedRegex(@"^\|$")]
+	public static partial Regex Regex();
 
 	public override string Sign() => "|";
 

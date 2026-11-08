@@ -1,10 +1,12 @@
-﻿namespace Calculators;
+﻿using System.Text.RegularExpressions;
+
+namespace Calculators;
 
 /// <summary>
 /// Represents a number.
 /// </summary>
 /// <typeparam name="T">The type of the term.</typeparam>
-public sealed class Number<T> : Term<T>
+public sealed partial class Number<T> : Term<T>
 {
 	#region Fields
 
@@ -23,6 +25,9 @@ public sealed class Number<T> : Term<T>
 	#endregion
 
 	#region Public methods
+
+	[GeneratedRegex(@"^\p{Nd}+\.?\p{Nd}*$")]
+	public static partial Regex Regex();
 
 	public override T GetValue() => value;
 

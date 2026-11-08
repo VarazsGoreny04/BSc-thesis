@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Calculators;
 
@@ -12,7 +13,7 @@ public abstract class Parenthesis : Expression { }
 /// <summary>
 /// Represents an opening parenthesis.
 /// </summary>
-public sealed class OpeningParenthesis : Parenthesis
+public sealed partial class OpeningParenthesis : Parenthesis
 {
 	#region Constructors
 	
@@ -36,6 +37,9 @@ public sealed class OpeningParenthesis : Parenthesis
 
 	#region Public methods
 
+	[GeneratedRegex(@"^\($")]
+	public static partial Regex Regex();
+
 	public override string ToStringByStep(ref int _) => "(";
 
 	#endregion
@@ -45,7 +49,7 @@ public sealed class OpeningParenthesis : Parenthesis
 /// Represents a closing parenthesis.
 /// </summary>
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parenthesis.</typeparam>
-public sealed class ClosingParenthesis<T> : Parenthesis
+public sealed partial class ClosingParenthesis<T> : Parenthesis
 {
 	#region Constructors
 
@@ -91,7 +95,10 @@ public sealed class ClosingParenthesis<T> : Parenthesis
 
 	#endregion
 
-	#region Internal methods
+	#region Public methods
+
+	[GeneratedRegex(@"^\)$")]
+	public static partial Regex Regex();
 
 	public override string ToStringByStep(ref int _) => ")";
 

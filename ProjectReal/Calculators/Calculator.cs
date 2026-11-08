@@ -10,46 +10,6 @@ namespace Calculators;
 /// </summary>
 public abstract partial class Calculator
 {
-	#region GeneratedRegex
-
-	[GeneratedRegex(@"^\p{Nd}+\.?\p{Nd}*$")]
-	protected static partial Regex NumberRegex();
-
-	[GeneratedRegex(@"^\w+$")]
-	protected static partial Regex FunctionNameRegex();
-
-	[GeneratedRegex(@"^\+$")]
-	protected static partial Regex AddRegex();
-
-	[GeneratedRegex(@"^\-$")]
-	protected static partial Regex SubtractRegex();
-
-	[GeneratedRegex(@"^\*$")]
-	protected static partial Regex MultiplyRegex();
-
-	[GeneratedRegex(@"^/$")]
-	protected static partial Regex DivideRegex();
-
-	[GeneratedRegex(@"^%$")]
-	protected static partial Regex ModuloRegex();
-
-	[GeneratedRegex(@"^\^$")]
-	protected static partial Regex PowerRegex();
-
-	[GeneratedRegex(@"^\|$")]
-	protected static partial Regex RootRegex();
-
-	[GeneratedRegex(@"^\($")]
-	protected static partial Regex OpeningParenthesisRegex();
-
-	[GeneratedRegex(@"^\)$")]
-	protected static partial Regex ClosingParenthesisRegex();
-
-	[GeneratedRegex(@"^,$")]
-	protected static partial Regex ComaRegex();
-
-	#endregion
-
 	#region Token types
 
 	/// <summary>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace Calculators.EuclideanSpace;
 
@@ -9,7 +10,7 @@ namespace Calculators.EuclideanSpace;
 /// Represents a matrix holding node.
 /// </summary>
 /// <typeparam name="T">The type of the values in the matrix to hold.</typeparam>
-public class MatrixHolder<T> : Term<Matrix<T>>
+public sealed partial class MatrixHolder<T> : Term<Matrix<T>>
 where T :
 	IComparisonOperators<T, T, bool>,
 	IEqualityOperators<T, T, bool>,
@@ -42,6 +43,9 @@ where T :
 	#endregion
 
 	#region Public methods
+
+	[GeneratedRegex(@"^\[.*\]$")]
+	public static partial Regex Regex();
 
 	public override string ToStringByStep(ref int step)
 	{

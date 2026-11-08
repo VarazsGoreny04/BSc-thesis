@@ -4,7 +4,6 @@ using ProjectReal.NumberSet;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
-using System.Text.RegularExpressions;
 
 namespace Calculators.Interpolation;
 
@@ -12,7 +11,7 @@ namespace Calculators.Interpolation;
 /// A calculator that understands 2×N matrices as (X, Y) coordinate pairs and can perform interpolations with them.
 /// </summary>
 /// <typeparam name="T">The type to calculate with.</typeparam>
-public partial class InterpolationCalculator<T> : Calculator
+public sealed partial class InterpolationCalculator<T> : Calculator
 where T :
 	IComparisonOperators<T, T, bool>,
 	IEqualityOperators<T, T, bool>,
@@ -29,16 +28,9 @@ where T :
 	IMultiplicativeIdentity<T, T>,
 	IParsable<T>
 {
-	#region GeneratedRegex
-
-	[GeneratedRegex(@"^\[.*\]$")]
-	protected static partial Regex BracketedRegex();
-
-	#endregion
-
 	#region Fields
 
-	protected EuclideanSpaceCalculator<T> euclideanSpaceCalculator;
+	private EuclideanSpaceCalculator<T> euclideanSpaceCalculator;
 
 	#endregion
 
@@ -50,7 +42,7 @@ where T :
 	public InterpolationCalculator(StandardCalculator<T> standardCalculator) : base(
 		[
 			// Matrix
-			new(BracketedRegex(), match => new MatrixHolder<T>(new Matrix<T>(match[1..^1], standardCalculator)))
+			new(MatrixHolder<T>.Regex(), match => new MatrixHolder<T>(new Matrix<T>(match[1..^1], standardCalculator)))
 		]
 	) => euclideanSpaceCalculator = new EuclideanSpaceCalculator<T>([], standardCalculator);
 
