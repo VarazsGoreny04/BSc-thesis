@@ -43,8 +43,17 @@ public class Matrix<T> :
 {
 	#region Constants
 
-	private const char ROW_SEPARATOR = '&';
-	private const char COLUMN_SEPARATOR = ';';
+	/// <returns>The first character used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
+	public const char START = '[';
+
+	/// <returns>The last character used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
+	public const char END = ']';
+
+	/// <returns>The row separator used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
+	public const char ROW_SEPARATOR = '&';
+
+	/// <returns>The column separator used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
+	public const char COLUMN_SEPARATOR = ';';
 
 	#endregion
 
@@ -55,12 +64,6 @@ public class Matrix<T> :
 	#endregion
 
 	#region Properties
-
-	/// <returns>The row separator used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
-	public static char RowSeparator => ROW_SEPARATOR;
-
-	/// <returns>The column separator used in the <see cref="string"/> representation of the <see cref="Matrix{T}"/>.</returns>
-	public static char ColumnSeparator => COLUMN_SEPARATOR;
 
 	/// <returns>The 1-by-1 zero <see cref="Matrix{T}"/>. [0]</returns>
 	public static Matrix<T> AdditiveIdentity => new(new T[1, 1] { { T.AdditiveIdentity } });

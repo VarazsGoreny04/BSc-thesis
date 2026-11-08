@@ -8,6 +8,13 @@ namespace Calculators.Standard;
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
 public sealed class Max<T> : Function<T> where T : IComparisonOperators<T, T, bool>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "max";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -54,7 +61,7 @@ public sealed class Max<T> : Function<T> where T : IComparisonOperators<T, T, bo
 
 	#region Public methods
 
-	public override string Sign() => "max";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -65,6 +72,13 @@ public sealed class Max<T> : Function<T> where T : IComparisonOperators<T, T, bo
 /// <typeparam name="T">The type of the <see cref="ValueHolder{T}"/> in the parameters.</typeparam>
 public sealed class Min<T> : Function<T> where T : IComparisonOperators<T, T, bool>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "min";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -111,7 +125,7 @@ public sealed class Min<T> : Function<T> where T : IComparisonOperators<T, T, bo
 
 	#region Public methods
 
-	public override string Sign() => "min";
+	public override string Sign() => SIGN;
 
 	#endregion
 }

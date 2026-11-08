@@ -24,6 +24,13 @@ where T :
 	IMultiplicativeIdentity<T, T>,
 	IParsable<T>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "diag";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -60,7 +67,7 @@ where T :
 
 	#region Public methods
 
-	public override string Sign() => "diag";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -85,6 +92,13 @@ where T :
 	IMultiplicativeIdentity<T, T>,
 	IParsable<T>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "inv";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -121,7 +135,7 @@ where T :
 
 	#region Public methods
 
-	public override string Sign() => "inv";
+	public override string Sign() => SIGN;
 
 	#endregion
 }

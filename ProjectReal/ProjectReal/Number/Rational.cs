@@ -26,7 +26,7 @@ public class Rational :
 	IMultiplicativeIdentity<Rational, Rational>,
 	IParsable<Rational>
 {
-	#region
+	#region Constants
 
 	private const int RECALCULATION_DIFFERENCE = 20;
 
@@ -73,7 +73,7 @@ public class Rational :
 	}
 
 	/// <returns>The character the <see cref="ToString"/> method uses as separator</returns>
-	public static char Separator => Writable.Separator;
+	public static char SEPARATOR => Writable.SEPARATOR;
 
 	/// <summary>
 	/// Gets or sets the length of calculating fractions.

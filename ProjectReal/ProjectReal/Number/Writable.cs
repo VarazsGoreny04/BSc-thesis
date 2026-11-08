@@ -50,7 +50,7 @@ public class Writable :
 	}
 
 	/// <returns>The character the <see cref="ToString"/> method uses as separator.</returns>
-	public static char Separator => Positive.Separator;
+	public static char SEPARATOR => Positive.SEPARATOR;
 
 	/// <summary>
 	/// Gets or sets the length of calculating fractions.
@@ -112,7 +112,7 @@ public class Writable :
 	/// Constructs a <see cref="Writable"/> by the given <see langword="string"/> parameter.
 	/// </summary>
 	/// <param name="number">
-	/// A <see langword="string"/> of 0 to 9 characters maybe a <see cref="Separator"/> sign somewhere after the first digit 
+	/// A <see langword="string"/> of 0 to 9 characters maybe a <see cref="SEPARATOR"/> sign somewhere after the first digit 
 	/// and maybe a + or - sign at the front.
 	/// </param>
 	/// <exception cref="ArgumentException"><paramref name="number"/> is not a valid number format.</exception>

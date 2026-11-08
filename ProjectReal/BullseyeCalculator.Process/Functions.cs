@@ -8,6 +8,13 @@ namespace BullseyeCalculator.Process;
 /// </summary>
 public sealed class Abs : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "abs";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -44,7 +51,7 @@ public sealed class Abs : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "abs";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -54,6 +61,13 @@ public sealed class Abs : Function<Rational>
 /// </summary>
 public sealed class Floor : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "floor";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -90,7 +104,7 @@ public sealed class Floor : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "floor";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -100,6 +114,13 @@ public sealed class Floor : Function<Rational>
 /// </summary>
 public sealed class Round : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "round";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -136,7 +157,7 @@ public sealed class Round : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "round";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -146,6 +167,13 @@ public sealed class Round : Function<Rational>
 /// </summary>
 public sealed class Ceiling : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "ceiling";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -182,7 +210,7 @@ public sealed class Ceiling : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "ceiling";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -192,6 +220,13 @@ public sealed class Ceiling : Function<Rational>
 /// </summary>
 public sealed class Sin : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "sin";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -228,7 +263,7 @@ public sealed class Sin : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "sin";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -238,6 +273,13 @@ public sealed class Sin : Function<Rational>
 /// </summary>
 public sealed class Cos : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "cos";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -274,7 +316,7 @@ public sealed class Cos : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "cos";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -285,6 +327,13 @@ public sealed class Cos : Function<Rational>
 /// </summary>
 public sealed class Exp : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "exp";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -321,7 +370,7 @@ public sealed class Exp : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "exp";
+	public override string Sign() => SIGN;
 
 	#endregion
 }
@@ -331,6 +380,13 @@ public sealed class Exp : Function<Rational>
 /// </summary>
 public sealed class Ln : Function<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the function.</returns>
+	public const string SIGN = "ln";
+
+	#endregion
+
 	#region Properties
 
 	/// <summary>
@@ -367,7 +423,7 @@ public sealed class Ln : Function<Rational>
 
 	#region Public methods
 
-	public override string Sign() => "ln";
+	public override string Sign() => SIGN;
 
 	#endregion
 }

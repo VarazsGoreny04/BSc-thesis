@@ -8,6 +8,13 @@ namespace BullseyeCalculator.Process;
 /// </summary>
 public sealed class PI : Term<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the term.</returns>
+	public const string SIGN = "pi";
+
+	#endregion
+
 	#region Constructors
 
 	/// <summary>
@@ -21,7 +28,7 @@ public sealed class PI : Term<Rational>
 
 	public override Rational GetValue() => Rational.Pi();
 
-	public override string ToStringByStep(ref int _) => "pi";
+	public override string ToStringByStep(ref int _) => SIGN;
 
 	#endregion
 }
@@ -31,6 +38,13 @@ public sealed class PI : Term<Rational>
 /// </summary>
 public sealed class E : Term<Rational>
 {
+	#region Constants
+
+	/// <returns>The sign of the term.</returns>
+	public const string SIGN = "e";
+
+	#endregion
+
 	#region Constructors
 
 	/// <summary>
@@ -44,7 +58,7 @@ public sealed class E : Term<Rational>
 
 	public override Rational GetValue() => Rational.E();
 
-	public override string ToStringByStep(ref int _) => "e";
+	public override string ToStringByStep(ref int _) => SIGN;
 
 	#endregion
 }

@@ -652,10 +652,10 @@ where T :
 			for (int j = 0; j < m; ++j)
 				row.Add($"{A[i, j]}");
 
-			rows.Add(string.Join(Matrix<T>.ColumnSeparator, row));
+			rows.Add(string.Join(Matrix<T>.COLUMN_SEPARATOR, row));
 		}
 
-		return $"[{string.Join(Matrix<T>.RowSeparator, rows)}]";
+		return $"{Matrix<T>.START}{string.Join(Matrix<T>.ROW_SEPARATOR, rows)}{Matrix<T>.END}";
 	}
 
 	#endregion

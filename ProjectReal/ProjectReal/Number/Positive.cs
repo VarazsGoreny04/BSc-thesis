@@ -27,7 +27,8 @@ public class Positive :
 {
 	#region Constants
 
-	private const char SEPARATOR = '.';
+	/// <returns>The character the <see cref="ToString"/> method uses as separator.</returns>
+	public const char SEPARATOR = '.';
 
 	#endregion
 
@@ -46,9 +47,6 @@ public class Positive :
 	public static Positive AdditiveIdentity => 0;
 
 	public static Positive MultiplicativeIdentity => 1;
-
-	/// <returns>The character the <see cref="ToString"/> method uses as separator.</returns>
-	public static char Separator => SEPARATOR;
 
 	/// <summary>
 	/// Gets or sets the length of calculating fractions.
@@ -105,7 +103,7 @@ public class Positive :
 	/// Constructs a <see cref="Positive"/> by the given <see langword="string"/> parameter.
 	/// </summary>
 	/// <param name="number">
-	/// A <see langword="string"/> of 0 to 9 characters and maybe a <see cref="Separator"/> sign somewhere after the first digit.
+	/// A <see langword="string"/> of 0 to 9 characters and maybe a <see cref="SEPARATOR"/> sign somewhere after the first digit.
 	/// </param>
 	/// <exception cref="ArgumentException"><paramref name="number"/> is not a valid number format.</exception>
 	public Positive(string number)

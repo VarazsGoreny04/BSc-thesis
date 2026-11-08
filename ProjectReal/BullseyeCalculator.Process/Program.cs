@@ -56,27 +56,36 @@ internal class Program
 	private static Calculator SelectCalculator(char calculatorType)
 	{
 		Calculator.FunctionToken<Rational>[] standardFunctionTokens = [
-			new("ceiling", () => new Ceiling()),
-			new("round", () => new Round()),
-			new("floor", () => new Floor()),
-			new("exp", () => new Exp()),
-			new("cos", () => new Cos()),
-			new("sin", () => new Sin()),
-			new("max", () => new Max<Rational>()),
-			new("min", () => new Min<Rational>()),
-			new("abs", () => new Abs()),
-			new("ln", () => new Ln()),
-			new("pi", () => new PI()),
-			new("e", () => new E())
+			.. new List<Calculator.FunctionToken<Rational>>()
+			{
+				new(Ceiling.SIGN, () => new Ceiling()),
+				new(Round.SIGN, () => new Round()),
+				new(Floor.SIGN, () => new Floor()),
+				new(Exp.SIGN, () => new Exp()),
+				new(Cos.SIGN, () => new Cos()),
+				new(Sin.SIGN, () => new Sin()),
+				new(Max<Rational>.SIGN, () => new Max<Rational>()),
+				new(Min<Rational>.SIGN, () => new Min<Rational>()),
+				new(Abs.SIGN, () => new Abs()),
+				new(Ln.SIGN, () => new Ln()),
+				new(PI.SIGN, () => new PI()),
+				new(E.SIGN, () => new E())
+			}.OrderByDescending(x => x.Name.Length)
 		];
 
 		Calculator.FunctionToken<Matrix<Rational>>[] euclideanSpaceFunctionTokens = [
-			new("diag", () => new Diagonalize<Rational>()),
-			new("inv", () => new Inverse<Rational>())
+			.. new List<Calculator.FunctionToken<Matrix<Rational>>>()
+			{
+				new(Diagonalize<Rational>.SIGN, () => new Diagonalize<Rational>()),
+				new(Inverse<Rational>.SIGN, () => new Inverse<Rational>())
+			}.OrderByDescending(x => x.Name.Length)
 		];
 
 		Calculator.FunctionToken<Rational>[] derivativeFunctionTokens = [
-			new("x", () => new X<Rational>(new Number<Rational>("1"), new Number<Rational>("1")))
+			.. new List<Calculator.FunctionToken<Rational>>()
+			{
+				new("x", () => new X<Rational>(new Number<Rational>("1"), new Number<Rational>("1")))
+			}.OrderByDescending(x => x.Name.Length)
 		];
 
 		StandardCalculator<Rational> standardCalculator = new(standardFunctionTokens);

@@ -54,10 +54,10 @@ where T :
 			for (int j = 0; j < value.Columns; ++j)
 				row.Add(value[i, j].ToStringByStep(ref step));
 
-			rows.Add(string.Join(Matrix<T>.ColumnSeparator, row));
+			rows.Add(string.Join(Matrix<T>.COLUMN_SEPARATOR, row));
 		}
 
-		return $"[{string.Join(Matrix<T>.RowSeparator, rows)}]";
+		return $"[{string.Join(Matrix<T>.ROW_SEPARATOR, rows)}]";
 	}
 
 	public override void FullEvaluation(ref List<(string, string)> partialValues, ValueHolder<Matrix<T>> root, ref int step)

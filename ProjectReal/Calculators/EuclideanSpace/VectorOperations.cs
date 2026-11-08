@@ -236,7 +236,7 @@ where T :
 	/// <param name="a">The vector to print.</param>
 	/// <returns>The string representation of the given vector.</returns>
 	/// <exception cref="ArgumentException">The vector</exception>
-	public static string ToString(T[] a) => $"[{string.Join(Matrix<T>.RowSeparator, a)}]";
+	public static string ToString(T[] a) => $"{Matrix<T>.START}{string.Join(Matrix<T>.ROW_SEPARATOR, a)}{Matrix<T>.END}";
 
 	#endregion
 }
